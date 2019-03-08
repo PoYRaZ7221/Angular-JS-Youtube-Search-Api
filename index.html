@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myapp" ng-controller="mycontrol">
+    <div class="container">
+
+<div class="col-sm-6">
+  <form >
+
+
+  <label>Müzik İsmi:</label>
+  <input type="text" ng-model="veri" class="form-control"><br>
+  <div style="text-align:right;">
+  <button type="button" ng-click="ara()" class="btn btn-success" >ara</button><br><br>
+  </div><br><br><br>
+</div>  </form>
+<br><br><br>
+</div>
+
+<div class="container">
+
+
+      <div class="col-sm-6" >
+
+
+
+
+  <table class="table table-hover table-bordered">
+   <thead>
+     <tr>
+       <th>Resim</th>
+       <th>İsim</th>
+       <th>Aciklama</th>
+       <th>yükleyen</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr ng-repeat="isim in sonuc">
+       <td><img src="{{isim.snippet.thumbnails.default.url}}" alt=""></td>
+       <td><br><a href="https://www.youtube.com/watch?v={{isim.id.videoId}}" target="_blank">{{isim.snippet.title}}</a></td>
+       <td ng-if="!isim.snippet.description == []">{{isim.snippet.description}}</td>
+       <td><a href="https://www.youtube.com/channel/{{isim.snippet.channelId}}">{{isim.snippet.channelTitle}}</a></td>
+     </tr>
+
+   </tbody>
+ </table>
+
+        </div>
+
+</div>
+
+  </body>
+</html>
